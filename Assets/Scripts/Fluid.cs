@@ -1,6 +1,6 @@
 using System;
 
-public class Liquid
+public class Fluid
 {
     /// <summary>
     /// Liquid Class for mathematical description 
