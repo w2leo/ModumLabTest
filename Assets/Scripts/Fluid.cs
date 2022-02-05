@@ -6,7 +6,6 @@ public class Fluid
     /// Liquid Class for mathematical description 
     /// flowSpeed - now const, but later can be variable
     /// </summary>
-    private double D;
     private const double flowSpeed = 1.0f;
 
     private double CountPipeSectionArea(double pipeDiameter)
@@ -15,11 +14,11 @@ public class Fluid
     }
 
     /// <summary>
-    /// Count Liquid Consumption m3 / s. Requires D - pipe diameter
+    /// Count Liquid Consumption m3 / s. Requires pipe diameter
     /// </summary>
     /// <param name="pipeSectionArea"></param>
     /// <returns></returns>
-    public double CountLiquidConsumption(double pipeDiameter)
+    public double CountFluidConsumption(double pipeDiameter)
     {
         return CountPipeSectionArea(pipeDiameter) * flowSpeed;
     }

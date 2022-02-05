@@ -2,37 +2,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
 
 public class Valve : MonoBehaviour
 {
-    private const double minRotation = 0;
-    private const double maxRotation = 720;
-    private double currentRotation;
+    [SerializeField] private Transform sterringWheel;
+    private const float minAngle = 0;
+    private const float maxAngle = 720;
+    private float currentAngle;
 
-    public void RotateValve(double angle)
+
+    private void Start()
     {
-        if (angle > 0)
+        currentAngle = 0;
+        SetRotationAngle();
+    }
+    public void RotateValve(float rotateAngle)
+    {
+        currentAngle += rotateAngle;
+        currentAngle = Mathf.Clamp(currentAngle, minAngle, maxAngle);
+        SetRotationAngle();
+    }
+
+    private void SetRotationAngle()
+    {
+        Vector3 newRotation = new Vector3(sterringWheel.localRotation.x, currentAngle, sterringWheel.localRotation.z);
+        sterringWheel.localRotation = Quaternion.Euler(newRotation);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
-            RotateValveClockwise(angle);
+            RotateValve(-180 * Time.deltaTime);
         }
-        else
+        if (Input.GetKey(KeyCode.RightArrow))
         {
-            RotateValveAntiClockwise(angle);
+            RotateValve(180 * Time.deltaTime);
         }
-    }
-
-    public void RotateValveClockwise(double angle)
-    {
-        currentRotation += angle;     
-    }
-
-    public void RotateValveAntiClockwise(double angle)
-    {
-        currentRotation -= angle;
-    }
-
-    public void CheckRotationBounds()
-    {
-        throw new NotImplementedException();
     }
 }
