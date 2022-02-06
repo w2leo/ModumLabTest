@@ -6,25 +6,24 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed;
     [SerializeField] private float rotateSpeed;
-    private void Update()
+    private Vector3 movement
     {
-        float verticalAxis = Input.GetAxis("Vertical");
-        float horizontalAxis = Input.GetAxis("Horizontal");
-        if (verticalAxis != 0)
+        get
         {
-            MovePlayer(verticalAxis * Time.deltaTime);
-
-        }
-        if (horizontalAxis != 0)
-        {
-            RotatePlayer(Input.GetAxis("Horizontal") * Time.deltaTime);
+            float horizontal = Input.GetAxis("Horizontal");
+            float vertical = Input.GetAxis("Vertical");
+            return new Vector3(horizontal, 0f, vertical);
         }
     }
 
-    private void MovePlayer(float direction)
+    private void Update()
     {
-        Vector3 newPosition = transform.position + Vector3.forward * direction * moveSpeed;
-        transform.Translate(newPosition);
+        MovePlayer();
+    }
+
+    private void MovePlayer()
+    {
+         transform.Translate(movement, transform);
     }
 
     private void RotatePlayer(float direction)
