@@ -6,15 +6,19 @@ using UnityEngine.UI;
 
 public class Valve : MonoBehaviour
 {
-    [SerializeField] private Transform sterringWheel;
-    private const float minAngle = 0;
-    private const float maxAngle = 720;
+    [SerializeField] private Transform handWheel;
+    [SerializeField] private float minAngle;
+    [SerializeField] private float maxAngle;
     private float currentAngle;
 
 
     private void Start()
     {
         currentAngle = 0;
+        if (maxAngle == 0)
+        {
+            maxAngle = 360;
+        }
         SetRotationAngle();
     }
     public void RotateValve(float rotateAngle)
@@ -26,8 +30,8 @@ public class Valve : MonoBehaviour
 
     private void SetRotationAngle()
     {
-        Vector3 newRotation = new Vector3(sterringWheel.localRotation.x, currentAngle, sterringWheel.localRotation.z);
-        sterringWheel.localRotation = Quaternion.Euler(newRotation);
+        Vector3 newRotation = new Vector3(handWheel.localRotation.x, currentAngle, handWheel.localRotation.z);
+        handWheel.localRotation = Quaternion.Euler(newRotation);
     }
 
     private void Update()

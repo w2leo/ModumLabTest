@@ -25,9 +25,9 @@ public class PlayerController : MonoBehaviour
         get
         {
             Vector3 currentPosition = Input.mousePosition;
-            Vector3 deltaPosition = currentPosition - mousePosition;
+            Vector3 deltaPosition = mousePosition - currentPosition;
             mousePosition = currentPosition;
-            return deltaPosition;
+            return new Vector3(deltaPosition.y, -deltaPosition.x, 0) * rotateSpeed;
         }
     }
 
@@ -37,37 +37,31 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Update()
-    {
+    {      
         MovePlayer();
+        SetRotationStatus();
+        RotatePlayer(isRotating);
+    }
 
+    private void SetRotationStatus()
+    {
         if (!isRotating && Input.GetMouseButtonDown(1))
         {
             isRotating = true;
             mousePosition = Input.mousePosition;
         }
-
-        if (Input.GetMouseButtonUp(1))
-        {
-            isRotating = false;
-        }
-
-        if (isRotating)
-            RotatePlayer();
+        isRotating = Input.GetMouseButton(1);
     }
 
     private void MovePlayer()
     {
-        transform.Translate(movement * moveSpeed * Time.deltaTime, transform);
+        transform.Translate(movement * moveSpeed * Time.deltaTime);
     }
 
-    private void RotatePlayer()
+    private void RotatePlayer(bool isRotating)
     {
-        //transform.RotateAround(Vector3.up, direction * rotateSpeed);
-        //Debug.Log(rotation);
-        var x = Quaternion.Euler(rotation).eulerAngles;
-        Debug.Log($"x = {x}");
-        //transform.Rotate(Quaternion.Euler(rotation), rotateSpeed * Time.deltaTime);
-       // transform.Rotate(x);
-        transform.localRotation = Quaternion.Euler(rotation);
+        if (!isRotating)
+            return;
+        transform.eulerAngles += Quaternion.Euler(rotation).eulerAngles;
     }
 }
