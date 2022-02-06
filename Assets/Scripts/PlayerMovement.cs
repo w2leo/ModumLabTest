@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerController : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed;
     [SerializeField] private float rotateSpeed;
     private Vector3 mousePosition;
-
     private bool isRotating;
 
     private Vector3 movement
@@ -25,9 +24,9 @@ public class PlayerController : MonoBehaviour
         get
         {
             Vector3 currentPosition = Input.mousePosition;
-            Vector3 deltaPosition = mousePosition - currentPosition;
+            Vector3 deltaPosition = currentPosition - mousePosition;
             mousePosition = currentPosition;
-            return new Vector3(deltaPosition.y, -deltaPosition.x, 0) * rotateSpeed;
+            return new Vector3(-deltaPosition.y, deltaPosition.x, 0);
         }
     }
 
@@ -37,7 +36,7 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Update()
-    {      
+    {
         MovePlayer();
         SetRotationStatus();
         RotatePlayer(isRotating);
@@ -62,6 +61,6 @@ public class PlayerController : MonoBehaviour
     {
         if (!isRotating)
             return;
-        transform.eulerAngles += Quaternion.Euler(rotation).eulerAngles;
+        transform.eulerAngles += Quaternion.Euler(rotation * rotateSpeed).eulerAngles;
     }
 }

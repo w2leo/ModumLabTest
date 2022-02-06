@@ -1,25 +1,22 @@
-using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class Fluid
 {
-    /// <summary>
-    /// Liquid Class for mathematical description 
-    /// flowSpeed - now const, but later can be variable
-    /// </summary>
-    private const double flowSpeed = 1.0f;
+    protected Color fluidColor;
+    public Color FluidColor => fluidColor;
 
-    private double CountPipeSectionArea(double pipeDiameter)
+    public Fluid()
     {
-        return Math.PI * Math.Pow(pipeDiameter, 2) / 4;
+        
     }
 
-    /// <summary>
-    /// Count Liquid Consumption m3 / s. Requires pipe diameter
-    /// </summary>
-    /// <param name="pipeSectionArea"></param>
-    /// <returns></returns>
-    public double CountFluidConsumption(double pipeDiameter)
+    public Fluid(Color color)
     {
-        return CountPipeSectionArea(pipeDiameter) * flowSpeed;
+        fluidColor = color;
     }
+
 }
+
+

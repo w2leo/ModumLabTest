@@ -9,8 +9,10 @@ public class Valve : MonoBehaviour
     [SerializeField] private Transform handWheel;
     [SerializeField] private float minAngle;
     [SerializeField] private float maxAngle;
+    [SerializeField] private Color fluidColor;
+    [SerializeField] private float pipeDiametr;
     private float currentAngle;
-
+    private FluidFlow fluid;
 
     private void Start()
     {
@@ -20,7 +22,18 @@ public class Valve : MonoBehaviour
             maxAngle = 360;
         }
         SetRotationAngle();
+
+        fluid = new FluidFlow(fluidColor);
     }
+
+    private void Update()
+    {
+        if (currentAngle > 0)
+        {
+            fluid.CountFluidConsumption()
+        }
+    }
+
     public void RotateValve(float rotateAngle)
     {
         currentAngle += rotateAngle;
@@ -32,17 +45,5 @@ public class Valve : MonoBehaviour
     {
         Vector3 newRotation = new Vector3(handWheel.localRotation.x, currentAngle, handWheel.localRotation.z);
         handWheel.localRotation = Quaternion.Euler(newRotation);
-    }
-
-    private void Update()
-    {
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            RotateValve(-180 * Time.deltaTime);
-        }
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            RotateValve(180 * Time.deltaTime);
-        }
     }
 }
