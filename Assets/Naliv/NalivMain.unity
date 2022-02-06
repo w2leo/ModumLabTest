@@ -143,9 +143,9 @@ MonoBehaviour:
   handWheel: {fileID: 1195775441}
   minAngle: 0
   maxAngle: 360
-  fluidColor: {r: 0, g: 0, b: 0, a: 0}
-  pipeDiametr: 0
-  cistern: {fileID: 0}
+  fluidColor: {r: 0.9433962, g: 0.022249907, b: 0.022249907, a: 0}
+  pipeDiametr: 1
+  mixedFluid: {fileID: 7642792019034985090}
 --- !u!1001 &427674698
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -307,6 +307,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 15
   rotateSpeed: 0.2
+--- !u!1 &547483186
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 547483187}
+  m_Layer: 0
+  m_Name: extremeDotB
+  m_TagString: Untagged
+  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &547483187
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547483186}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3, y: 0, z: 6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7642792019034820261}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1055344350
 GameObject:
   m_ObjectHideFlags: 0
@@ -468,6 +498,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1187446640
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1187446641}
+  m_Layer: 0
+  m_Name: extremeDotA
+  m_TagString: Untagged
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1187446641
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187446640}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7642792019034820261}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1195775441 stripped
 Transform:
@@ -859,6 +919,36 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2009127894113087849, guid: 36df760a3580fd841b480d4d9aa2c0ed, type: 3}
   m_PrefabInstance: {fileID: 6696303121318106583}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1862747203
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1862747204}
+  m_Layer: 0
+  m_Name: extremeDotC
+  m_TagString: Untagged
+  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1862747204
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1862747203}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3, y: 4, z: 6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7642792019034820261}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1896674526 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7047967763470005990, guid: 36df760a3580fd841b480d4d9aa2c0ed, type: 3}
@@ -911,9 +1001,9 @@ MonoBehaviour:
   handWheel: {fileID: 1792927840}
   minAngle: 0
   maxAngle: 360
-  fluidColor: {r: 0, g: 0, b: 0, a: 0}
-  pipeDiametr: 0
-  cistern: {fileID: 0}
+  fluidColor: {r: 0.94509804, g: 0.9201083, b: 0.02352941, a: 0}
+  pipeDiametr: 1
+  mixedFluid: {fileID: 7642792019034985090}
 --- !u!1 &2093088139
 GameObject:
   m_ObjectHideFlags: 0
@@ -1154,7 +1244,7 @@ Transform:
   m_GameObject: {fileID: 7642792019034985089}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8.657297, y: -2.8876456e-15, z: -9.982699}
-  m_LocalScale: {x: 1, y: 0.8, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7642792019034820259}
   m_RootOrder: 2
@@ -1190,7 +1280,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.9927185, y: 0, z: -2.9927185}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1187446641}
+  - {fileID: 547483187}
+  - {fileID: 1862747204}
   m_Father: {fileID: 7642792019034820259}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1267,6 +1360,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11802f30d895a254bacf4734fcdc8a58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cistern: {fileID: 7642792019034985094}
 --- !u!1 &7642792019034985091
 GameObject:
   m_ObjectHideFlags: 0
@@ -1315,6 +1409,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   capacity: 10
+  extremeDotA: {fileID: 1187446641}
+  extremeDotB: {fileID: 547483187}
+  extremeDotC: {fileID: 1862747204}
 --- !u!1 &7642792019034985095
 GameObject:
   m_ObjectHideFlags: 0
