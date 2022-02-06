@@ -11,6 +11,7 @@ public class Valve : MonoBehaviour
     [SerializeField] private float maxAngle;
     [SerializeField] private Color fluidColor;
     [SerializeField] private float pipeDiametr;
+    [SerializeField] private FluidGameObject mixedFluid;
     private float currentAngle;
     private FluidFlow fluid;
 
@@ -30,7 +31,8 @@ public class Valve : MonoBehaviour
     {
         if (currentAngle > 0)
         {
-            fluid.CountFluidConsumption()
+            float fluidVolume = fluid.CountFluidConsumption(pipeDiametr) * Time.deltaTime;
+            mixedFluid.AddFluidToGameObject(fluid, fluidVolume);
         }
     }
 

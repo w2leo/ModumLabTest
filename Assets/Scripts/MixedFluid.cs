@@ -1,32 +1,36 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MixedFluid : Fluid
-{
-    private Dictionary<Fluid, float> fluidsInside;
 
-    public float CurrentVolume
+[Serializable]
+ public class MixedFluid : Fluid
+{
+    private Dictionary<Fluid, float> fluidsInside = new Dictionary<Fluid, float>();
+    [SerializeField] public float CurrentVolume
     {
         get
         {
-            float currentCapacity = 0;
+            float currentVolume = 0;
             foreach (var item in fluidsInside)
             {
-                currentCapacity += item.Value;
+                currentVolume += item.Value;
             }
-            return currentCapacity;
+            return currentVolume;
         }
     }
-
-    public Color CurrentColor
+    [SerializeField] public Color CurrentColor
     {
         get
         {
-            Color color = new Color(0, 0, 0);
-            foreach (var item in fluidsInside)
+            Color color = new Color(0,0,0);
+            if (CurrentVolume != 0)
             {
-                color += item.Key.FluidColor * item.Value / CurrentVolume;
+                foreach (var item in fluidsInside)
+                {
+                    color += item.Key.FluidColor * item.Value / CurrentVolume;
+                }
             }
             return color;
         }
