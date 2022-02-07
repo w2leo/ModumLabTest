@@ -29,7 +29,7 @@ using UnityEngine;
             {
                 foreach (var item in fluidsInside)
                 {
-                    color += item.Key.FluidColor * item.Value / CurrentVolume;
+                    color += item.Key.Color * item.Value / CurrentVolume;
                 }
             }
             return color;

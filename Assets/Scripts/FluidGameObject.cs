@@ -44,9 +44,9 @@ public class FluidGameObject : MonoBehaviour
         return volume / (Mathf.PI * Mathf.Pow(radius, 2));
     }
 
-    public void AddFluidToGameObject(Fluid newFluid, float volume)
+    public void AddFluidToGameObject(Fluid newFluid)
     {
-        fluidInside.AddFluid(newFluid, volume);
+        fluidInside.AddFluid(newFluid, newFluid.Volume);
         SetVolume();
     }
 }

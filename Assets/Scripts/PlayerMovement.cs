@@ -54,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void MovePlayer()
     {
+        
         transform.Translate(movement * moveSpeed * Time.deltaTime);
     }
 

@@ -13,7 +13,7 @@ public class Valve : MonoBehaviour
     [SerializeField] private float pipeDiametr;
     [SerializeField] private FluidGameObject mixedFluid;
     private float currentAngle;
-    private FluidFlow fluid;
+    private Fluid fluid;
 
     private void Start()
     {
@@ -24,15 +24,14 @@ public class Valve : MonoBehaviour
         }
         SetRotationAngle();
 
-        fluid = new FluidFlow(fluidColor);
+        fluid = new Fluid(fluidColor);
     }
 
     private void Update()
     {
         if (currentAngle > 0)
         {
-            float fluidVolume = fluid.CountFluidConsumption(pipeDiametr) * Time.deltaTime;
-            mixedFluid.AddFluidToGameObject(fluid, fluidVolume);
+            mixedFluid.AddFluidToGameObject(FluidFlow.PourFluidFromPipe(fluid, pipeDiametr, Time.deltaTime));
         }
     }
 

@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class FluidFlow : Fluid
+public class FluidFlow
 {
     /// <summary>
     /// Liquid Class for mathematical description 
@@ -9,12 +9,7 @@ public class FluidFlow : Fluid
     /// </summary>
     private const float flowSpeed = 1.0f;
 
-    public FluidFlow(Color color)
-    {
-        base.fluidColor = color;
-    }
-
-    private float CountPipeSectionArea(float pipeDiameter)
+    private static float CountPipeSectionArea(float pipeDiameter)
     {
         return Mathf.PI * Mathf.Pow(pipeDiameter, 2) / 4;
     }
@@ -24,8 +19,13 @@ public class FluidFlow : Fluid
     /// </summary>
     /// <param name="pipeSectionArea"></param>
     /// <returns></returns>
-    public float CountFluidConsumption(float pipeDiameter)
+    private static float CountFluidConsumption(float pipeDiameter)
     {
         return CountPipeSectionArea(pipeDiameter) * flowSpeed;
+    }
+
+    public static Fluid PourFluidFromPipe (Fluid fluid, float pipeDiameter, float timeInSeconds)
+    {
+        return new Fluid(fluid.Color, CountFluidConsumption(pipeDiameter) * timeInSeconds);
     }
 }
