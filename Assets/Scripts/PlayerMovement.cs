@@ -7,10 +7,10 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed;
     [SerializeField] private float rotateSpeed;
-    private Vector3 mousePosition;
+    private Vector3 oldMousePosition;
     private bool isRotating;
 
-    private Vector3 movement
+    private Vector3 playerMovement
     {
         get
         {
@@ -19,13 +19,13 @@ public class PlayerMovement : MonoBehaviour
             return new Vector3(horizontal, 0f, vertical);
         }
     }
-    private Vector3 rotation
+    private Vector3 playerRotation
     {
         get
         {
-            Vector3 currentPosition = Input.mousePosition;
-            Vector3 deltaPosition = currentPosition - mousePosition;
-            mousePosition = currentPosition;
+            Vector3 currentMousePosition = Input.mousePosition;
+            Vector3 deltaPosition = currentMousePosition - oldMousePosition;
+            oldMousePosition = currentMousePosition;
             return new Vector3(-deltaPosition.y, deltaPosition.x, 0);
         }
     }
@@ -39,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
     {
         MovePlayer();
         SetRotationStatus();
-        RotatePlayer(isRotating);
+        RotatePlayer();
     }
 
     private void SetRotationStatus()
@@ -47,21 +47,20 @@ public class PlayerMovement : MonoBehaviour
         if (!isRotating && Input.GetMouseButtonDown(1))
         {
             isRotating = true;
-            mousePosition = Input.mousePosition;
+            oldMousePosition = Input.mousePosition;
         }
         isRotating = Input.GetMouseButton(1);
     }
 
     private void MovePlayer()
     {
-        
-        transform.Translate(movement * moveSpeed * Time.deltaTime);
+        transform.Translate(playerMovement * moveSpeed * Time.deltaTime);
     }
 
-    private void RotatePlayer(bool isRotating)
+    private void RotatePlayer()
     {
         if (!isRotating)
             return;
-        transform.eulerAngles += Quaternion.Euler(rotation * rotateSpeed).eulerAngles;
+        transform.eulerAngles += Quaternion.Euler(playerRotation * rotateSpeed).eulerAngles;
     }
 }

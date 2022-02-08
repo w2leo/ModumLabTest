@@ -2,22 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fluid
+public abstract class Fluid
 {
-    private Color color;
-    private float volume;
-    public float Volume => volume;
-    public Color Color => color;
+    protected float volume;
+    protected Color color;
+
+    public virtual float Volume => volume;
+
+    public virtual Color Color => color;
 
     public Fluid()
     {
-
+        SetColor(Color.clear);
+        volume = 0;
     }
 
-    public Fluid(Color color, float volume = 0)
+    public Fluid(Color color, float volume)
     {
-        this.color = color;
+        SetColor(color);
         this.volume = volume;
+    }
+
+    public abstract void AddFluid(Fluid newFluid, float volume);
+
+    protected void SetColor(Color newColor)
+    {
+        color = newColor;
     }
 }
 

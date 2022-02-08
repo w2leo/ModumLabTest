@@ -140,12 +140,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b33b5a0bdf00b54fb43210390820b3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handWheel: {fileID: 1195775441}
-  minAngle: 0
-  maxAngle: 360
-  fluidColor: {r: 0.9433962, g: 0.022249907, b: 0.022249907, a: 0}
+  fluidMaterial: {fileID: 2100000, guid: b26d0839be10e524fa4b75e50a260506, type: 2}
   pipeDiametr: 1
-  mixedFluid: {fileID: 7642792019034985090}
+  destinationCistern: {fileID: 7642792019034985094}
+--- !u!114 &397002003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 397002001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f68be2528e4268441b4f7642607eb8f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotateWheel: {fileID: 1195775441}
 --- !u!1001 &427674698
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -156,6 +166,10 @@ PrefabInstance:
     - target: {fileID: 8815556082547939118, guid: 36df760a3580fd841b480d4d9aa2c0ed, type: 3}
       propertyPath: m_Name
       value: Valve 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8815556082547939118, guid: 36df760a3580fd841b480d4d9aa2c0ed, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9124815483029640129, guid: 36df760a3580fd841b480d4d9aa2c0ed, type: 3}
       propertyPath: m_RootOrder
@@ -678,7 +692,7 @@ GameObject:
   - component: {fileID: 1382575193}
   - component: {fileID: 1382575192}
   m_Layer: 0
-  m_Name: ObjectTaker
+  m_Name: ObjectRotator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -820,7 +834,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1451a306a932fd5419b5b786d7368c68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parentValve: {fileID: 397002002}
+  headGameObject: {fileID: 397002003}
 --- !u!1 &1542580430
 GameObject:
   m_ObjectHideFlags: 0
@@ -980,7 +994,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1451a306a932fd5419b5b786d7368c68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parentValve: {fileID: 1967605417}
+  headGameObject: {fileID: 1967605418}
 --- !u!1 &1967605416 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8815556082547939118, guid: 36df760a3580fd841b480d4d9aa2c0ed, type: 3}
@@ -998,12 +1012,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b33b5a0bdf00b54fb43210390820b3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handWheel: {fileID: 1792927840}
-  minAngle: 0
-  maxAngle: 360
-  fluidColor: {r: 0.94509804, g: 0.9201083, b: 0.02352941, a: 0}
+  fluidMaterial: {fileID: 2100000, guid: 83d0770cb67757943abf659faa6bfa5a, type: 2}
   pipeDiametr: 1
-  mixedFluid: {fileID: 7642792019034985090}
+  destinationCistern: {fileID: 7642792019034985094}
+--- !u!114 &1967605418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1967605416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f68be2528e4268441b4f7642607eb8f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotateWheel: {fileID: 1792927840}
 --- !u!1 &2093088139
 GameObject:
   m_ObjectHideFlags: 0
@@ -1340,7 +1364,6 @@ GameObject:
   - component: {fileID: 7642792019034820257}
   - component: {fileID: 7642792019038211713}
   - component: {fileID: 7642792019037244481}
-  - component: {fileID: 7642792019034985090}
   m_Layer: 0
   m_Name: MixedFluid
   m_TagString: Untagged
@@ -1348,19 +1371,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &7642792019034985090
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7642792019034985089}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11802f30d895a254bacf4734fcdc8a58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cistern: {fileID: 7642792019034985094}
 --- !u!1 &7642792019034985091
 GameObject:
   m_ObjectHideFlags: 0
@@ -1405,13 +1415,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7642792019034985093}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89e5fc991f5fdf940a3cb4c51825f1b3, type: 3}
+  m_Script: {fileID: 11500000, guid: 65cded7efee4dc94c8cffaf536bae0f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  capacity: 10
   extremeDotA: {fileID: 1187446641}
   extremeDotB: {fileID: 547483187}
   extremeDotC: {fileID: 1862747204}
+  fluidGameObject: {fileID: 7642792019034820257}
 --- !u!1 &7642792019034985095
 GameObject:
   m_ObjectHideFlags: 0
@@ -1485,7 +1495,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 83d0770cb67757943abf659faa6bfa5a, type: 2}
+  - {fileID: 2100000, guid: 5fed661bcce5afd40ba5f56ed194e867, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

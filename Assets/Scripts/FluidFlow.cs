@@ -19,13 +19,8 @@ public class FluidFlow
     /// </summary>
     /// <param name="pipeSectionArea"></param>
     /// <returns></returns>
-    private static float CountFluidConsumption(float pipeDiameter)
+    public  static float CountFluidConsumption(float pipeDiameter)
     {
         return CountPipeSectionArea(pipeDiameter) * flowSpeed;
-    }
-
-    public static Fluid PourFluidFromPipe (Fluid fluid, float pipeDiameter, float timeInSeconds)
-    {
-        return new Fluid(fluid.Color, CountFluidConsumption(pipeDiameter) * timeInSeconds);
     }
 }
